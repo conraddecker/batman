@@ -136,9 +136,7 @@ class Batman.Model extends Batman.Object
         @fire 'loaded', mappedRecords, env
         callback?(err, mappedRecords, env)
 
-  @create: (attrs, callback) ->
-    if !callback
-      [attrs, callback] = [{}, attrs]
+  @create: (attrs, callback = {}) ->
     obj = new this(attrs)
     obj.save(callback)
     obj
